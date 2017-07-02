@@ -325,12 +325,12 @@
 <h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">readString</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line"> String a1=<span class="string">"1000"</span>;</div><div class="line"> String a2=<span class="string">"1000"</span>; </div><div class="line"> String a3=<span class="keyword">new</span> String(<span class="string">"1000"</span>);</div><div class="line"> String a4=<span class="keyword">new</span> String(<span class="string">"1000"</span>);</div><div class="line"> System.out.println(a1.equals(a2));</div><div class="line"> System.out.println(a3.equals(a4));</div><div class="line"> System.out.println(a3==a4);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>大家觉得结果是什么呢？</p>
 <p>答案就是</p>
-<p><img src="test1.png" alt="test"></p>
+<p><img src="../images/test1.png" alt="test"></p>
 <p>不知道在看答案的你是不是答对了呢 </p>
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>其实这个要讲起来又是涉及到==和euqals的区别。我的理解是，==是比较两个类的应邀地址是不是指向了同一个地方。而equals是基于定义的equals方法来具体实现的。举个栗子:</p>
 <blockquote>
 <p>String的equals方法：</p>
-<p><img src="test2.png&quot;String的equals方法&quot;" alt="test2"></p>
+<p><img src="../images/test2.png&quot;String的equals方法&quot;" alt="test2"></p>
 </blockquote>
 <p>这里我们就可以知道：</p>
 <p>1.String的euqals是先判断是不是同一个对象，如果是就返回true.</p>
@@ -341,7 +341,7 @@
 <p>6.比较两个数组的值是不是相等，不等返回false,相等返回true</p>
 <p>这里我们就可以知道了a3 equal a4的。</p>
 <p>而当String一个对象””时，JVM是先根据””里面的值去字符串池里面找，如果没有就创建一个，如果有就引用，所以这里面的过程大致是(JVM没这么简单，粗糙粗糙….)</p>
-<p><img src="tes3.png" alt="test3"></p>
+<p><img src="../images/tes3.png" alt="test3"></p>
 <p>所以a1等于a2，a3==a4为false,是因为它们开辟了新的内存，指向地址不同，所以为false.</p>
 <p>所以String类原来是这样的呀</p>
 
